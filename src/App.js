@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import PrivateLayout from './layouts/Private'
+import './App.scss'
+
+const Dashboard = lazy(() => import('./pages/Dashboard'))
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PrivateLayout>
+        <Suspense fallback={<div style={{height: '100vh'}}></div>}>
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+          </Switch>
+        </Suspense>
+      </PrivateLayout>
     </div>
   );
 }
