@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import cn from 'classnames'
 
 const Card = ({title, children, footer, className}) => {
@@ -9,4 +9,9 @@ const Card = ({title, children, footer, className}) => {
 	)
 }
 
-export default Card
+const isEqual = (prev, next) => {
+	console.log(prev, next)
+	return true
+}
+
+export default memo(Card, isEqual)

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import cn from 'classnames'
-import { isFunction } from '../utils'
+import { isFunction } from '../../utils'
+import './DropDown.scss'
 
 const DropDown = ({children, list, dropdownId = 'default-dropdown'}) => {
 	const [show, setShow] = useState(false)
