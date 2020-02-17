@@ -241,10 +241,14 @@ const Dashboard = () => {
 				<div className="col-12 col-sm-6 col-lg-4 mb-3">
 					<Card>
 						<h4 className="card-title">Customer Info</h4>
-						<div className="card-body">
+						<div className="card-body font-weight-bold">
 							<div className="row mb-3">
-								<div className="col-6 text-secondary">Cust ID</div>
-								<div className="col-6">{customer.id}</div>
+								<div className="col-6 text-secondary">Name</div>
+								<div className="col-6">{customer.name}</div>
+							</div>
+							<div className="row  mb-3">
+								<div className="col-6 text-secondary">Status</div>
+								<div className="col-6"><Badge title={customer.status} /></div>
 							</div>
 							<div className="row mb-3">
 								<div className="col-6 text-secondary">Email ID</div>
@@ -259,16 +263,12 @@ const Dashboard = () => {
 								<div className="col-6">{customer.extId}</div>
 							</div>
 							<div className="row mb-3">
-								<div className="col-6 text-secondary">Name</div>
-								<div className="col-6">{customer.name}</div>
-							</div>
-							<div className="row mb-3">
-								<div className="col-6 text-secondary">KYC</div>
-								<div className="col-6">{customer.kyc}</div>
+								<div className="col-6 text-secondary">Qolo Cust ID</div>
+								<div className="col-6">{customer.id}</div>
 							</div>
 							<div className="row">
-								<div className="col-6 text-secondary">Status</div>
-								<div className="col-6">{customer.status}</div>
+								<div className="col-6 text-secondary">KYC</div>
+								<div className="col-6">{customer.kyc}</div>
 							</div>
 						</div>
 						<div className="card-footer">
@@ -373,13 +373,16 @@ const Dashboard = () => {
 										onChange={handleChange('txType')}
 										value={form.txType} />
 								</div>
-								<div className="ml-auto">
-									<TextField placeholder="Search" icon="SearchIcon" />
-								</div>
+								<TextField placeholder="Search" icon="SearchIcon" className="ml-auto" />
 							</div>
 						</div>
 						<div>
 							<Table columns={columnsNotes} data={notesData} />
+						</div>
+						<div className="card-footer">
+							<div className="text-center">
+								<Link title="Add new" icon="PlusIcon" />
+							</div>
 						</div>
 					</Card>
 				</div>

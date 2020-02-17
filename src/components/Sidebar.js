@@ -7,13 +7,13 @@ import cn from 'classnames'
 const NAV_LIST = [
 	{
 		icon: 'CastomerIcon',
-		url: '/customer',
-	}, {
-		icon: 'CaseIcon',
 		url: '/',
 	}, {
+		icon: 'CaseIcon',
+		url: '/contracts',
+	}, {
 		icon: 'RatesIcon',
-		url: '/profile',
+		url: '/rates',
 	}
 ]
 

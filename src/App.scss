@@ -10,7 +10,7 @@ $blue: #009EE8;
 $green: #06874C;
 $bg-green: rgba(69,210,151, 0.2);
 $bg-secondary: rgba(150,150,150, 0.2);
-$danger: #D24545;
+$danger: #D14444;
 $bg-danger: rgba(210,69,69, 0.2);
 $headline-color: #002550;
 $headline-size: 26;
@@ -28,7 +28,7 @@ $font-size-base: 14;
 $body-font-family: Nunito Sans;
 $body-bg-color: #F9FAFD;
 $input-border: 1px solid rgba(0, 37, 80, 0.1);
-$input-height: 40px;
+$input-height: 32px;
 $header-font-size: 16px;
 $body-font-size: 14px;
 
@@ -39,6 +39,10 @@ body {
   font-weight: $body-font-weight;
   font-family: $body-font-family;
   background-color: $body-bg-color;
+}
+
+.font-weight-bold {
+  font-weight: $font-weight-bold;
 }
 
 .btn {
@@ -97,14 +101,16 @@ body {
 .dropdown {
   position: absolute;
   background-color: $white;
-  color: $body-color;
-  padding: 24px 16px;
+  color: $headline-color;
+  padding: 8px 0px;
   right: 0;
   top: 100%;
   z-index: 1;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   display: none;
+  line-height: 1;
+  min-width: 188px;
   &.active {
     display: block;
   }
@@ -112,8 +118,9 @@ body {
     white-space: nowrap;
     cursor: pointer;
     font-weight: $font-weight-bold;
-    &:not(:last-child) {
-      margin-bottom: 16px;
+    padding: 16px 16px;
+    &:hover {
+      background-color: $light;
     }
   }
 }
@@ -189,10 +196,12 @@ body {
 }
 
 .table {
+  font-weight: $font-weight-bold;
   &.table-hover {
     tbody {
       tr:hover {
         background-color: $light;
+        cursor: pointer;
       }
     }
   }
@@ -220,6 +229,7 @@ body {
     font-weight: $font-weight-bold;
     padding: 24px 20px;
     margin-bottom: 0;
+    color: $headline-color;
   }
   .card-body {
     
@@ -232,6 +242,7 @@ body {
 }
 
 .link {
+  font-weight: $font-weight-bold;
   &:hover {
     color: $blue;
   }
@@ -261,8 +272,8 @@ body {
   }
   .select-arrows {
     position: absolute;
-    right: 20px;
-    top: 8px;
+    right: 16px;
+    top: 4px;
   }
 }
 
@@ -277,7 +288,6 @@ body {
     font-weight: $body-font-weight;
     color: $body-color;
     height: $input-height;
-    max-width: 276px;
     &:placeholder {
       color: $secondary;
     }
@@ -296,6 +306,13 @@ body {
     height: 35px;
     display: inline-block;
     padding: 0px;
+    color: $blue;
+  }
+  &:focus {
+    outline: none !important;
+    border-color: $blue;
+    box-shadow: none;
+    background-color: $white;
   }
 }
 

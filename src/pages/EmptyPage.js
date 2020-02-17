@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Customers = () => {
+const Empty = () => {
 	return (
 		<div className="h-100 container-fluid pt-3">
 		</div>
 	)
 }
 
-export default Customers
+export default Empty
