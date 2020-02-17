@@ -1,9 +1,10 @@
 import React from 'react'
+import { isFunction } from '../utils'
 
 const Table = ({columns, data}) => {
 	return (
 		<div className="overflow-auto table-container">
-			<table className="table border-bottom">
+			<table className="table border-bottom table-hover">
 				<thead className="thead-light">
 					<tr>
 						{
@@ -26,7 +27,7 @@ const Table = ({columns, data}) => {
 										columns.map((column, colIndex) => {
 											let cell = row[column.key]
 											if (column.cell) {
-												if (typeof column.cell === 'function') {
+												if (isFunction(column.cell)) {
 													cell = column.cell(row)
 												} else {
 													cell = column.cell

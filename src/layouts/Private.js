@@ -2,16 +2,18 @@ import React from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 
-const PrivateLayout = ({children}) => {
+const PrivateLayout = ({children, path}) => {
 	return (
 		<div className="private-layout">
-			<div className="position-relative d-none d-lg-block">
-				<Sidebar />
-			</div>
-			<div className="flex-fill">
-				<Header />
-				<div className="page-content">
+			<Header />
+			<div className="d-flex">
+				<div className="position-relative d-none d-lg-block">
+					<Sidebar path={path} />
+				</div>
+				<div className="flex-fill overflow-hidden">
+					<div className="page-content">
 					{ children }
+					</div>
 				</div>
 			</div>
 		</div>

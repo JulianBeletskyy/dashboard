@@ -28,8 +28,9 @@ $font-size-base: 14;
 $body-font-family: Nunito Sans;
 $body-bg-color: #F9FAFD;
 $input-border: 1px solid rgba(0, 37, 80, 0.1);
-$input-height: 32px;
+$input-height: 40px;
 $header-font-size: 16px;
+$body-font-size: 14px;
 
 @import '~bootstrap/scss/bootstrap.scss';
 
@@ -47,14 +48,37 @@ body {
     border-color: $secondary;
     color: $secondary;
   }
+  &.btn-outline-primary {
+    svg {
+      path {
+        fill: $blue;
+        fill-opacity: 1;
+      }
+    }
+  }
+  &:hover {
+    color: $white;
+    background-color: $blue;
+    border-color: $blue;
+    svg {
+      path {
+        fill: $white;
+        fill-opacity: 1;
+      }
+    }
+  }
 }
 
 .private-layout {
-  display: flex;
+  /*display: flex;*/
 }
 
 .page-content {
   min-height: $page-min-height;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .header {
@@ -62,6 +86,85 @@ body {
   background-color: $dark-blue;
   color: $white;
   font-size: $header-font-size;
+  .divider {
+    width: 1px;
+    background: #FFFFFF;
+    height: 100%;
+    opacity: 0.2;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  background-color: $white;
+  color: $body-color;
+  padding: 24px 16px;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  display: none;
+  &.active {
+    display: block;
+  }
+  .dorpdown-item {
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: $font-weight-bold;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.custom-calendar {
+  &.react-datepicker {
+    font-family: $body-font-family;
+    border: none;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.12);
+    color: $body-color;
+  }
+  .react-datepicker__triangle {
+    display: none;
+  }
+  .react-datepicker__header {
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 0px 12px 0px;
+      color: $body-color;
+      .title {
+        margin-left: 43px;
+        margin-right: 43px;
+        font-weight: $font-weight-bold;
+        color: $headline-color;
+      }
+    }
+    background-color: $light;
+    font-family: $body-font-family;
+    border-color: $gray-300;
+    padding-top: 0px;
+  }
+  .react-datepicker__day-names {
+    font-weight: $font-weight-bold;
+    .react-datepicker__day-name {
+      color: $headline-color;
+    }
+  }
+  .calendar-day {
+    font-family: $body-font-family;
+    font-weight: normal;
+    &.react-datepicker__day--selected,
+    &.react-datepicker__day--keyboard-selected {
+      background-color: $blue;
+      font-weight: $font-weight-bold;
+    }
+    &.react-datepicker__day--outside-month {
+      color: $secondary;
+    }
+  }
 }
 
 .sidebar {
@@ -69,7 +172,16 @@ body {
   background-color: $white;
   height: 100%;
   box-shadow: $body-box-shadow;
-  padding-top: 8px;
+  padding-top: 45px;
+  .navigation {
+    .navigation-item {
+      margin-bottom: 48px;
+    }
+  }
+  .divider {
+    border-bottom: 1px solid rgba(0, 37, 80, 0.1);
+    margin-bottom: 30px;
+  }
 }
 
 .table-container {
@@ -77,6 +189,13 @@ body {
 }
 
 .table {
+  &.table-hover {
+    tbody {
+      tr:hover {
+        background-color: $light;
+      }
+    }
+  }
   .thead-light {
     th {
       color: $table-thead-color;
@@ -93,6 +212,7 @@ body {
     }
   }
 }
+  
 
 .card {
   box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.08);
@@ -112,6 +232,9 @@ body {
 }
 
 .link {
+  &:hover {
+    color: $blue;
+  }
   svg {
     fill: $blue;
   }
@@ -122,13 +245,28 @@ body {
   }
 }
 
-.custom-select {
-  border: $input-border;
-  color: $body-color;
-  font-weight: $body-font-weight;
-  height: $input-height;
-  width: 154px;
+.custom-select-wrapper {
+  position: relative;
+  .custom-select {
+    border: $input-border;
+    color: $body-color;
+    font-weight: $body-font-weight;
+    height: $input-height;
+    width: 154px;
+    position: relative;
+    background: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .select-arrows {
+    position: absolute;
+    right: 20px;
+    top: 8px;
+  }
 }
+
+
 
 .input-wrapper {
   max-width: 276px;
@@ -142,6 +280,12 @@ body {
     max-width: 276px;
     &:placeholder {
       color: $secondary;
+    }
+    &:focus {
+      outline: none !important;
+      border-color: $blue;
+      box-shadow: none;
+      background-color: $white;
     }
   }
 }
@@ -163,7 +307,8 @@ body {
 }
 
 .badge {
-  padding: 4px 10px;
+  padding: 5px 10px;
+  font-size: $body-font-size;
   &.badge-success {
     color: $green;
     background-color: $bg-green;

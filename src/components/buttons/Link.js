@@ -12,7 +12,7 @@ const Href = ({title, href = '/', icon, onClick}) => {
 	
 	const IconComp = icons[icon]
 	return (
-		<Link to={href} className="text-decoration-none d-inline-flex align-items-center link" onClick={handleClick}>
+		<Link to={href} className="d-inline-flex align-items-center link" onClick={handleClick}>
 			<span className="mr-1">{ title }</span>
 			{ icon && <IconComp /> }
 		</Link>
