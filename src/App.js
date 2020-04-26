@@ -5,6 +5,7 @@ import './App.scss'
 import PrivateRoute from './components/PrivateRoute'
 
 const Dashboard = lazy(() => import('./pages/Dashboard'))
+const VideoStream = lazy(() => import('./pages/VideoStream'))
 const Empty = lazy(() => import('./pages/EmptyPage'))
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <Suspense fallback={<PrivateLayout />}>
         <Switch>
           <PrivateRoute exact path="/" component={Dashboard} />
+          <PrivateRoute exact path="/video" component={VideoStream} />
           <PrivateRoute exact path="/contracts" component={Empty} />
           <PrivateRoute exact path="/rates" component={Empty} />
           <Redirect to="/" />

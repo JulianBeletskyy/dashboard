@@ -4,7 +4,7 @@ export const NAV_LIST = [
 		url: '/',
 	}, {
 		icon: 'CaseIcon',
-		url: '/contracts',
+		url: '/video',
 	}, {
 		icon: 'RatesIcon',
 		url: '/rates',

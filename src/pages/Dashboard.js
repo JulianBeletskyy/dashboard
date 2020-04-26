@@ -8,6 +8,7 @@ import DatePicker from '../components/inputs/DatePicker'
 import Badge from '../components/Badge'
 import numeral from 'numeral'
 import Pagination from '../components/Pagination'
+import RuningString from '../components/RuningString'
 
 const customer = {
 	id: '023AD50',
